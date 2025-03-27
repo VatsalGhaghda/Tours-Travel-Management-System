@@ -3,7 +3,7 @@ session_start();
 
 $host = "localhost";
 $username = "root";
-$password = "root";
+$password = "qwepoi";
 $database = "TourTravelDB";
 
 $conn = new mysqli($host, $username, $password, $database);
