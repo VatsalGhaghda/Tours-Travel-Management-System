@@ -1,0 +1,156 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #0d0d0d;
+    color: #ffffff;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 115vh;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color:  rgba(0, 0, 0, 0.600);
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display:block;
+    height: 195px;
+}
+
+
+.main-button a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 12px 20px;
+  background-color: #ed563b;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all .3s;
+}
+
+.main-button a:hover {
+  background-color: #f9735b;
+  color: #fff;
+}
+
+
+/* Profile Card */
+.profile {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    width: 550px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Profile Name */
+.profile h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3399ff;
+    margin-bottom: 5px;
+}
+
+/* Job Title */
+.profile h2 {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+/* Section Headers */
+.profile h3 {
+    color: #3399ff;
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+/* Section Dividers */
+.profile hr {
+    border: none;
+    height: 1px;
+    background: #3399ff;
+    margin: 10px 0;
+}
+
+/* Profile Text */
+.profile p {
+    font-size: 16px;
+    color: #dddddd;
+    margin: 3px 0;
+}
+
+/* Language List */
+.languages {
+    list-style: none;
+    padding: 0;
+}
+
+.languages li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 8px 0;
+}
+
+.languages li i {
+    margin-right: 10px;
+    color: #3399ff;
+    font-size: 18px;
+}
+
+/* Contact Info */
+.contact-btn {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+    background: #3399ff;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #007bff;
+}
