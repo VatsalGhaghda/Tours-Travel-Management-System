@@ -3,7 +3,7 @@ session_start();
 
 $host = "localhost";
 $username = "root";
-$password = "root";
+$password = "1234";
 $database = "TourTravelDB";
 
 $conn = new mysqli($host, $username, $password, $database);
@@ -65,26 +65,47 @@ $conn->close();
     <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
 </head>
 <body>
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.php" class="logo">Travel Agency</a>
-                        <ul class="nav">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="packages.html">Packages</a></li>
-                            <li><a href="booking.html">Booking</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="tour_guide.html">Tour Guide</a></li>
-                            <li><a href="signup.html" class="active">Login/Signup</a></li>
-                        </ul>
-                        <a class='menu-trigger'><span>Menu</span></a>
-                    </nav>
-                </div>
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">Travel <em>Agency</em></a>
+                    <!-- ***** Logo End ***** -->
+
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                    <li><a href="index.php" >Home</a></li>
+                    <li><a href="packages.php">Packages</a></li>
+                    <li><a href="booking.php">Booking</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="about.php">About us</a></li>
+
+
+                    <?php if (isset($_SESSION['customer_id'])): ?>
+                        <!-- Show Profile Dropdown when Logged In -->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
+                            </a>
+                            <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
+    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+</div>
+
+                        </li>
+                    <?php else: ?>
+                        <!-- Show Login/Signup when Not Logged In -->
+                        <li><a href="signup.html" class="active">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+                    <!-- ***** Menu End ***** -->
+                </nav>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <section class="booking-section">
         <div class="container">

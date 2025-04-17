@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $username = "root";
-$password = "root";
+$password = "1234";
 $database = "TourTravelDB";
 
 $conn = new mysqli($host, $username, $password, $database);
@@ -120,7 +120,7 @@ $conn->close();
                         <a href="index.php" class="logo">Travel Agency </a>
                         <ul class="nav">
                             <li ><a href="index.php">Home</a></li>
-                            <li><a href="packages.html">Packages</a></li>
+                            <li><a href="packages.">Packages</a></li>
                             <li><a href="booking.html">Booking</a></li>
                             <li><a href="faq.html">FAQ</a></li>
                             <li><a href="tour_guide.html">Tour Guide</a></li>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +13,12 @@
 </head>
 <body>
     <section class="profile">
-        <h1>Jaiditya Chauhan </h1>
-        <h2>Full Stack Developer</h2>
+        <h1>Bhavy Tanna</h1>
+        <h2>Application Developer</h2>
 
         <h3>Education</h3>
         <hr>
-        <p><strong>Diploma Degree in Computer Science</strong></p>
+        <p><strong>Diploma Degree in Information Technology</strong></p>
         <p>Gujarat Technological  University</p>
         <p>2021 - 2024</p>
 
@@ -25,20 +29,28 @@
             <li><i class="fas fa-code"></i> JavaScript</li>
             <li><i class="fas fa-code"></i> Java</li>
             <li><i class="fas fa-code"></i> C Language</li>
-            <li><i class="fas fa-database"></i> SQL/NO SQL</li>
-            <li><i class="fas fa-database"></i> ASP.net</li>
+            <li><i class="fas fa-code"></i> Android</li>
+            <li><i class="fas fa-code"></i> Python</li>
+            <li><i class="fas fa-code"></i> Flutter</li>
+            <li><i class="fas fa-database"></i> SQL</li>
+            
+           
+        </ul>
+
         </ul>
 
         <h3>Hobbies</h3>
         <hr>
         <ul class="languages">
-            <li><i class="fas fa-code"></i> Travelling</li>
-            <li><i class="fas fa-code"></i> Reading</li>
+            <li><i class="fas fa-code"></i> Drawing</li>
+            <li><i class="fas fa-code"></i> Coding</li>
+            <li><i class="fas fa-code"></i> Play musical instrument</li>
+            <li><i class="fas fa-code"></i> ESport</li>
             
            
         </ul>
 
-        <a href="mailto:jaiditya@example.com" class="contact-btn">Contact Me</a>
+        <a href="mailto:bhavy@example.com" class="contact-btn">Contact Me</a>
     </section>
 </body>
 </html>

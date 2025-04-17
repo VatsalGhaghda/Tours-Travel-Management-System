@@ -51,10 +51,11 @@ session_start();
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                     <li><a href="index.php" class="active">Home</a></li>
-                    <li><a href="packages.html">Packages</a></li>
-                    <li><a href="booking.html">Booking</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="tour_guide.html">Tour Guide</a></li>
+                    <li><a href="packages.php">Packages</a></li>
+                    <li><a href="booking.php">Booking</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="about.php">About us</a></li>
 
                     <?php if (isset($_SESSION['customer_id'])): ?>
                         <!-- Show Profile Dropdown when Logged In -->
@@ -69,7 +70,7 @@ session_start();
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
-                        <li><a href="signup.html">Login/Signup</a></li>
+                        <li><a href="login.php">Login</a></li>
                     <?php endif; ?>
                 </ul>
                     <!-- ***** Menu End ***** -->
