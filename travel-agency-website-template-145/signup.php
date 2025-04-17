@@ -1,17 +1,6 @@
 <?php
-$host = "localhost";
-$username = "root";
-$password = "1234";
-$database = "TourTravelDB";
-
-$conn = new mysqli($host, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-function generateShortHashedPassword($plainPassword) {
-    return substr(sha1($plainPassword), 0, 16);
-}
+// Include the database connection file
+require_once 'includes/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -33,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if ($row['Email'] === $email) {
-            echo "<script>alert('Error: Email already exists.'); window.location.href = 'signup.html';</script>";
+            echo "<script>alert('Error: Email already exists.'); window.location.href = 'signup.php';</script>";
         } elseif ($row['Phone'] === $phone) {
-            echo "<script>alert('Error: Phone number already exists.'); window.location.href = 'signup.html';</script>";
+            echo "<script>alert('Error: Phone number already exists.'); window.location.href = 'signup.php';</script>";
         }
         $check_stmt->close();
     } else {
@@ -45,15 +34,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sssssss", $name, $email, $phone, $address, $dob, $nationality, $hashed_password);
 
         if ($stmt->execute()) {
-            header("Location: login.html"); // Redirect to login page after signup
+            header("Location: login.php"); // Redirect to login page after signup
             exit();
         } else {
-            echo "<script>alert('Error: Registration failed.'); window.location.href = 'signup.html';</script>";
+            echo "<script>alert('Error: Registration failed.'); window.location.href = 'signup.php';</script>";
         }
         $stmt->close();
     }
 }
 
+// Close the connection
 $conn->close();
 ?>
 
@@ -120,11 +110,11 @@ $conn->close();
                         <a href="index.php" class="logo">Travel Agency </a>
                         <ul class="nav">
                             <li ><a href="index.php">Home</a></li>
-                            <li><a href="packages.">Packages</a></li>
-                            <li><a href="booking.html">Booking</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="tour_guide.html">Tour Guide</a></li>
-                            <li><a href="signup.html" class="active">Login/Signup</a></li>
+                            <li><a href="packages.php">Packages</a></li>
+                            <li><a href="booking.php">Booking</a></li>
+                            <li><a href="faq.php">FAQ</a></li>
+                            <li><a href="tour_guide.php">Tour Guide</a></li>
+                            <li><a href="signup.php" class="active">Login/Signup</a></li>
                         </ul>
                         <a class='menu-trigger'><span>Menu</span></a>
                     </nav>
@@ -174,7 +164,7 @@ $conn->close();
                     </div>
                     <div class="form-group text-center">
                         <input type="submit" value="Signup" class="btn-submit">
-                        <p style="margin-top: 10px;">Already a user? <a href="login.html">Login</a></p>
+                        <p style="margin-top: 10px;">Already a user? <a href="login.php">Login</a></p>
                     </div>
                 </form>
             </div>

@@ -9,15 +9,15 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Travel Agency</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
     <link rel="stylesheet" href="assets/css/about_us.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header-area header-sticky">
+        <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -33,7 +33,7 @@ session_start();
                     <li><a href="booking.php">Booking</a></li>
                     <li><a href="faq.php">FAQ</a></li>
                     <li><a href="tour_guide.php">Tour Guide</a></li>
-                    <li><a href="about.php"  class="active">About us</a></li>
+                    <li><a href="about.php" class="active">About us</a></li>
 
                     <?php if (isset($_SESSION['customer_id'])): ?>
                         <!-- Show Profile Dropdown when Logged In -->
@@ -42,9 +42,8 @@ session_start();
                                 <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
-    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
-</div>
-
+                                <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+                            </div>
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
@@ -57,9 +56,10 @@ session_start();
         </div>
     </div>
 </header>
+<!-- ***** Header Area End ***** -->
 
     <!-- About Section -->
-    <section class="about">
+    <section class="about" style="margin-top: 80px;">
         <div class="container">
             <h2>Who We Are</h2>
             <p>We are a passionate team of travel experts dedicated to creating memorable and personalized journeys for travelers worldwide.</p>
@@ -72,18 +72,15 @@ session_start();
         <div class="team-container">
             <div class="team-member">
                 <img src="assets/images/ss4.jpg" alt="Bhavy Tanna">
-
                 <h3>Bhavy Tanna</h3>
             </div>
             <div class="team-member">
                 <img src="assets/images/20250327_190252_0000.jpg" alt="Vatsal Ghaghda">
-
                 <h3>Vatsal Ghaghda</h3>
             </div>
             <div class="team-member">
                 <img src="assets/images/ss4.jpg" alt="Jaiditya Chauhan">
                 <h3>Jaiditya Chauhan</h3>
-                
             </div>
         </div>
     </section>
@@ -92,13 +89,16 @@ session_start();
     <section class="cta">
         <h2>Plan Your Next Adventure</h2>
         <p>Let us create an unforgettable experience for you.</p>
-        <a href="contact.html" class="btn">Contact Us</a>
+        <a href="contact.php" class="btn">Contact Us</a>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Travel Agency. All rights reserved.</p>
-    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -110,6 +110,9 @@ session_start();
             });
         });
     </script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
 </body>
 </html>

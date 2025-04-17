@@ -12,6 +12,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/tour_guide.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/nav.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -45,7 +46,8 @@ session_start();
 </head>
 <body>
 
-<header class="header-area header-sticky">
+ <!-- ***** Header Area Start ***** -->
+ <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -56,7 +58,7 @@ session_start();
 
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                    <li><a href="index.php" >Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="packages.php">Packages</a></li>
                     <li><a href="booking.php">Booking</a></li>
                     <li><a href="faq.php">FAQ</a></li>
@@ -70,9 +72,8 @@ session_start();
                                 <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
-    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
-</div>
-
+                                <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+                            </div>
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
@@ -85,7 +86,7 @@ session_start();
         </div>
     </div>
 </header>
-
+<!-- ***** Header Area End ***** -->
 
     <div class="container">
         <div class="guide-container section-heading">
@@ -141,6 +142,15 @@ session_start();
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+     
 </body>
 </html>

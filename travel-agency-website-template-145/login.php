@@ -1,19 +1,8 @@
 <?php
 session_start();
 
-$host = "localhost";
-$username = "root";
-$password = "1234";
-$database = "TourTravelDB";
-
-$conn = new mysqli($host, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-function generateShortHashedPassword($plainPassword) {
-    return substr(sha1($plainPassword), 0, 16);
-}
+// Include the database connection file
+require_once 'includes/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -60,9 +49,10 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login - Travel Agency</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+ link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
 </head>
 <body>
 <header class="header-area header-sticky">
@@ -97,7 +87,7 @@ $conn->close();
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
-                        <li><a href="signup.html" class="active">Login</a></li>
+                        <li><a href="signup.php" class="active">Login</a></li>
                     <?php endif; ?>
                 </ul>
                     <!-- ***** Menu End ***** -->
@@ -124,7 +114,7 @@ $conn->close();
                     </div>
                     <div class="form-group text-center">
                         <input type="submit" value="Login" class="btn-submit">
-                        <p style="margin-top: 10px;">Not a member? <a href="signup.html">Sign up</a></p>
+                        <p style="margin-top: 10px;">Not a member? <a href="signup.php">Sign up</a></p>
                     </div>
                 </form>
             </div>
@@ -135,6 +125,10 @@ $conn->close();
     <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             let valid = true;

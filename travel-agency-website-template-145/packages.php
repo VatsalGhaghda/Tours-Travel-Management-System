@@ -21,12 +21,14 @@ session_start();
 
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <link rel="stylesheet" href="assets/css/nav.css">
+
     </head>
     
     <body>
     
     <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
+    <!-- <div id="js-preloader" class="js-preloader">
       <div class="preloader-inner">
         <span class="dot"></span>
         <div class="dots">
@@ -35,7 +37,7 @@ session_start();
           <span></span>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- ***** Preloader End ***** -->
     
     
@@ -128,7 +130,7 @@ session_start();
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.html">+ View Package</a></li>
+                                <li><a href="package-details.php">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -154,7 +156,7 @@ session_start();
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.html">+ View Package</a></li>
+                                <li><a href="package-details.php">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -180,7 +182,7 @@ session_start();
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.html">+ View Package</a></li>
+                                <li><a href="package-details.php">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -207,7 +209,7 @@ session_start();
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.html">+ View Package</a></li>
+                                <li><a href="package-details.php">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -233,7 +235,7 @@ session_start();
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.html">+ View Package</a></li>
+                                <li><a href="package-details.php">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -259,53 +261,15 @@ session_start();
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.html">+ View Package</a></li>
+                                <li><a href="package-details.php">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <br>
-                
-            <nav>
-              <ul class="pagination pagination-lg justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
         </div>
     </section>
     <!-- ***** Fleet Ends ***** -->
-
-    
-    <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        Copyright © 2020 Company Name
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -321,9 +285,12 @@ session_start();
     <script src="assets/js/imgfix.min.js"></script> 
     <script src="assets/js/mixitup.js"></script> 
     <script src="assets/js/accordions.js"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
+    <!-- <script src="assets/js/custom.js"></script> -->
 
   </body>
 </html>

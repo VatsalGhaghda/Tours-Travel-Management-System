@@ -11,31 +11,9 @@ session_start();
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./assets/css/booking.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/booking.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/nav.css"> 
 </head>
-
-<style>
-    body {
-        background-color: #f8f9fa;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .guide-container {
-        max-width: 650px;
-        margin: 50px auto;
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .guide-container h2 {
-        text-align: center;
-        color: #232d39;
-        font-weight: 700;
-    }
-</style>
-
 
 <body>
     <!-- Header (same as before) -->
@@ -191,22 +169,12 @@ session_start();
         </div>
     </section>
 
-    <!-- Footer (same as before) -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- Scripts (same as before) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <!-- <script src="assets/js/custom.js"></script> -->
     <script>
         $(document).ready(function() {
             $('#tourpackage_id, #number_of_people').on('change', function() {

@@ -12,7 +12,8 @@ session_start();
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/payment.css"> <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/payment.css"> 
+    <link rel="stylesheet" type="text/css" href="assets/css/nav.css"> 
   </head>  
     <style>
         body {
@@ -54,29 +55,48 @@ session_start();
 
 <body>
 
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">Travel Agency </a>
-                        <ul class="nav">
-                            <li ><a href="index.html">Home</a></li>
-                            <li><a href="packages.html">Packages</a></li>
-                            <li><a href="booking.html"  >Booking</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="tour_guide.html">Tour Guide</a></li>
-                            <li><a href="signup.html">Login/Signup</a></li>
-                            <li><a href="payment.html"  class="active">Payment</a></li>
-                        </ul>
-                        <a class='menu-trigger'><span>Menu</span></a>
-                    </nav>
-                </div>
+     <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">Travel <em>Agency</em></a>
+                    <!-- ***** Logo End ***** -->
+
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                    <li><a href="index.php" class="active">Home</a></li>
+                    <li><a href="packages.php">Packages</a></li>
+                    <li><a href="booking.php">Booking</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="about.php">About us</a></li>
+
+                    <?php if (isset($_SESSION['customer_id'])): ?>
+                        <!-- Show Profile Dropdown when Logged In -->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
+                            </a>
+                            <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
+    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+</div>
+
+                        </li>
+                    <?php else: ?>
+                        <!-- Show Login/Signup when Not Logged In -->
+                        <li><a href="login.php">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+                    <!-- ***** Menu End ***** -->
+                </nav>
             </div>
         </div>
-    </header>
-
-   
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
     <div class="container">
         <div class="payment-container">

@@ -26,7 +26,7 @@ session_start();
     <body>
     
     <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
+    <!-- <div id="js-preloader" class="js-preloader">
       <div class="preloader-inner">
         <span class="dot"></span>
         <div class="dots">
@@ -35,45 +35,52 @@ session_start();
           <span></span>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- ***** Preloader End ***** -->
     
     
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">Travel Agency<em> Website</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="packages.html">Packages</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.html">About Us</a>
-                                    <a class="dropdown-item" href="testimonials.html">Testimonials</a>
-                                    <a class="dropdown-item" href="terms.html">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.html" class="active">Contact</a></li> 
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
+   <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">Travel <em>Agency</em></a>
+                    <!-- ***** Logo End ***** -->
+
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="packages.php">Packages</a></li>
+                    <li><a href="booking.php">Booking</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="about.php">About us</a></li>
+
+                    <?php if (isset($_SESSION['customer_id'])): ?>
+                        <!-- Show Profile Dropdown when Logged In -->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
+                            </a>
+                            <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
+    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+</div>
+
+                        </li>
+                    <?php else: ?>
+                        <!-- Show Login/Signup when Not Logged In -->
+                        <li><a href="login.php">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+                    <!-- ***** Menu End ***** -->
+                </nav>
             </div>
         </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
@@ -182,20 +189,6 @@ session_start();
         </div>
     </section>
     <!-- ***** Contact Us Area Ends ***** -->
-    
-    <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        Copyright © 2020 Company Name
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -213,7 +206,10 @@ session_start();
     <script src="assets/js/accordions.js"></script>
     
     <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
+    <!-- <script src="assets/js/custom.js"></script> -->
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   </body>
 </html>
