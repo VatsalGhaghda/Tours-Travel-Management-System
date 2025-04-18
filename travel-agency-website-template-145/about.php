@@ -30,9 +30,8 @@ session_start();
                     <ul class="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="packages.php">Packages</a></li>
-                    <li><a href="booking.php">Booking</a></li>
                     <li><a href="faq.php">FAQ</a></li>
-                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="about.php" class="active">About us</a></li>
 
                     <?php if (isset($_SESSION['customer_id'])): ?>
@@ -42,6 +41,7 @@ session_start();
                                 <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" href="view_booking.php">Profile</a>
                                 <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
                             </div>
                         </li>

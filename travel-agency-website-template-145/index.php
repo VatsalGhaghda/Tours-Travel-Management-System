@@ -52,9 +52,8 @@ session_start();
                     <ul class="nav">
                     <li><a href="index.php" class="active">Home</a></li>
                     <li><a href="packages.php">Packages</a></li>
-                    <li><a href="booking.php">Booking</a></li>
                     <li><a href="faq.php">FAQ</a></li>
-                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="about.php">About us</a></li>
 
                     <?php if (isset($_SESSION['customer_id'])): ?>
@@ -64,9 +63,9 @@ session_start();
                                 <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
-    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
-</div>
-
+                                <a class="dropdown-item" href="view_booking.php">Profile</a>
+                                <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+                            </div>
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
@@ -89,7 +88,7 @@ session_start();
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <h6>Lorem ipsum dolor sit amet</h6>
+                <h6>Welcome to our travel agency</h6>
                 <h2><em>Explore</em> the world with us!</h2>
                 <div class="main-button">
                     <a href="contact.php">Contact Us</a>
@@ -107,7 +106,7 @@ session_start();
                     <div class="section-heading">
                         <h2>Featured <em>Packages</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
-                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                        <p>These are some of the packages that we offer. You can view more packages by clicking the button below.</p>
                     </div>
                 </div>
             </div>
@@ -115,25 +114,25 @@ session_start();
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
+                            <img src="assets/images/1.jpg" alt="United Arab Emirates Tour">
                         </div>
                         <div class="down-content">
                             <span>
-                                <sup>$</sup>300.00 - <sup>$</sup>400.00
+                                <sup>$</sup>2905.37
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>United Arab Emirates Adventure</h4>
 
                             <p>
-                                <i class="fa fa-calendar"></i> Spring &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-calendar"></i> 29 days &nbsp;&nbsp;&nbsp;
 
-                                <i class="fa fa-cube"></i> 20 nights &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-users"></i> Max 15 people &nbsp;&nbsp;&nbsp;
 
-                                <i class="fa fa-plane"></i> Flight included &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-map-marker"></i> UAE &nbsp;&nbsp;&nbsp;
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.php">+ View Package</a></li>
+                                <li><a href="package-details.php?id=1">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -141,25 +140,25 @@ session_start();
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
+                            <img src="assets/images/2.jpg" alt="French Guiana Tour">
                         </div>
                         <div class="down-content">
                             <span>
-                                <sup>$</sup>300.00 - <sup>$</sup>400.00
+                                <sup>$</sup>712.71
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>French Guiana Explorer</h4>
 
                             <p>
-                                <i class="fa fa-calendar"></i> Spring &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-calendar"></i> 14 days &nbsp;&nbsp;&nbsp;
 
-                                <i class="fa fa-cube"></i> 20 nights &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-users"></i> Max 46 people &nbsp;&nbsp;&nbsp;
 
-                                <i class="fa fa-plane"></i> Flight included &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-map-marker"></i> French Guiana &nbsp;&nbsp;&nbsp;
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.php">+ View Package</a></li>
+                                <li><a href="package-details.php?id=2">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -167,25 +166,25 @@ session_start();
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
+                            <img src="assets/images/3.jpg" alt="Andorra Tour">
                         </div>
                         <div class="down-content">
                             <span>
-                                <sup>$</sup>300.00 - <sup>$</sup>400.00
+                                <sup>$</sup>4157.75
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>Andorra Discovery</h4>
 
                             <p>
-                                <i class="fa fa-calendar"></i> Spring &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-calendar"></i> 30 days &nbsp;&nbsp;&nbsp;
 
-                                <i class="fa fa-cube"></i> 20 nights &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-users"></i> Max 44 people &nbsp;&nbsp;&nbsp;
 
-                                <i class="fa fa-plane"></i> Flight included &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-map-marker"></i> Andorra &nbsp;&nbsp;&nbsp;
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="package-details.php">+ View Package</a></li>
+                                <li><a href="package-details.php?id=3">+ View Package</a></li>
                             </ul>
                         </div>
                     </div>

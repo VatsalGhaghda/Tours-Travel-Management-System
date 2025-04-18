@@ -6,38 +6,27 @@ require_once 'includes/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    $plain_password = $_POST['password'];
+    $password = $_POST['password'];
 
-    $sql = "SELECT Customer_ID, Name, Password FROM Customer WHERE Email = ?";
+    $sql = "SELECT * FROM Customer WHERE Email = ? AND Password = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-        $stored_hash = $row['Password'];
-        $hashed_input = generateShortHashedPassword($plain_password);
-
-        if ($hashed_input === $stored_hash) {
-            $_SESSION['customer_id'] = $row['Customer_ID'];
-            $_SESSION['name'] = $row['Name'];
-            header("Location: index.php");
-            exit();
-        } else {
-            echo "<script>
-                    alert('Incorrect password. Please try again.');
-                    window.location.href = 'login.php';
-                  </script>";
-        }
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        $_SESSION['customer_id'] = $user['Customer_ID'];
+        $_SESSION['name'] = $user['Name'];
+        
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'success']);
+        exit();
     } else {
-        echo "<script>
-                alert('User does not exist. Please check your email or sign up.');
-                window.location.href = 'login.php';
-              </script>";
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password. Please try again.']);
+        exit();
     }
-
-    $stmt->close();
 }
 $conn->close();
 ?>
@@ -55,7 +44,8 @@ $conn->close();
     <link rel="stylesheet" href="assets/css/nav.css">
 </head>
 <body>
-<header class="header-area header-sticky">
+ <!-- ***** Header Area Start ***** -->
+ <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -66,28 +56,26 @@ $conn->close();
 
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                    <li><a href="index.php" >Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="packages.php">Packages</a></li>
-                    <li><a href="booking.php">Booking</a></li>
                     <li><a href="faq.php">FAQ</a></li>
-                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="about.php">About us</a></li>
-
 
                     <?php if (isset($_SESSION['customer_id'])): ?>
                         <!-- Show Profile Dropdown when Logged In -->
                         <li class="nav-item dropdown">
-                            <a href="#" class="dropdown" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="#" class="dropdown  class="active"" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
-    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
-</div>
-
+                                <a class="dropdown-item" href="view_booking.php">Profile</a>
+                                <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+                            </div>
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
-                        <li><a href="signup.php" class="active">Login</a></li>
+                        <li><a href="login.php"  class="active">Login</a></li>
                     <?php endif; ?>
                 </ul>
                     <!-- ***** Menu End ***** -->
@@ -96,6 +84,7 @@ $conn->close();
         </div>
     </div>
 </header>
+<!-- ***** Header Area End ***** -->
 
     <section class="booking-section">
         <div class="container">
@@ -110,7 +99,12 @@ $conn->close();
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required minlength="8">
+                        <div class="password-input-container">
+                            <input type="password" name="password" id="password" required minlength="8">
+                            <button type="button" class="toggle-password" onclick="togglePassword()">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group text-center">
                         <input type="submit" value="Login" class="btn-submit">
@@ -129,45 +123,107 @@ $conn->close();
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <style>
+        .password-input-container {
+            position: relative;
+            width: 100%;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+        }
+        .toggle-password:hover {
+            color: #ed563b;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            let valid = true;
-
-            function showError(field, message) {
-                field.setCustomValidity(message);
-                field.reportValidity();
-                valid = false;
+            event.preventDefault();
+            
+            // Basic validation
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            
+            if (!email.value || !password.value) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Please fill in all fields',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true
+                });
+                return;
             }
 
-            function clearError(field) {
-                field.setCustomValidity("");
-            }
+            // Collect form data
+            const formData = new FormData(this);
 
-            const email = document.getElementById("email");
-            const emailValue = email.value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // Submit the form using AJAX
+            fetch('login.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'error') {
+                    Swal.fire({
+                        title: 'Login Failed',
+                        text: data.message,
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true
+                    });
+                    return;
+                }
 
-            if (emailValue === "") {
-                showError(email, "Email is required.");
-            } else if (!emailValue.includes('@')) {
-                showError(email, "Email must contain '@' symbol.");
-            } else if (!emailValue.includes('.')) {
-                showError(email, "Email must contain a domain with a dot.");
-            } else if (!emailRegex.test(emailValue)) {
-                showError(email, "Please enter a valid email address.");
-            } else {
-                clearError(email);
-            }
-
-            const password = document.getElementById("password");
-            if (password.value.trim() === "") {
-                showError(password, "Password is required.");
-            } else {
-                clearError(password);
-            }
-
-            if (!valid) event.preventDefault();
+                // Show success message and redirect
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Login successful!',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    willClose: () => {
+                        window.location.href = 'index.php';
+                    }
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true
+                });
+            });
         });
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('.toggle-password i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.classList.remove('fa-eye');
+                toggleButton.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.classList.remove('fa-eye-slash');
+                toggleButton.classList.add('fa-eye');
+            }
+        }
     </script>
 </body>
 </html>

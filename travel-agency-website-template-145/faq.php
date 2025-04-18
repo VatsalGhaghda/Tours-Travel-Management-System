@@ -22,8 +22,8 @@ session_start();
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header-area header-sticky">
+    <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -36,9 +36,8 @@ session_start();
                     <ul class="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="packages.php">Packages</a></li>
-                    <li><a href="booking.php">Booking</a></li>
                     <li><a href="faq.php" class="active">FAQ</a></li>
-                    <li><a href="tour_guide.php">Tour Guide</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="about.php">About us</a></li>
 
                     <?php if (isset($_SESSION['customer_id'])): ?>
@@ -48,9 +47,9 @@ session_start();
                                 <i class="fa fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <div class="dropdown-menu custom-navbar-dropdown" aria-labelledby="profileDropdown">
-    <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
-</div>
-
+                                <a class="dropdown-item" href="view_booking.php">Profile</a>
+                                <a class="dropdown-item logout-btn" href="logout.php">Logout</a>
+                            </div>
                         </li>
                     <?php else: ?>
                         <!-- Show Login/Signup when Not Logged In -->
@@ -63,6 +62,7 @@ session_start();
         </div>
     </div>
 </header>
+<!-- ***** Header Area End ***** -->
 
     <!-- FAQ Section -->
     <section class="faq-section">
