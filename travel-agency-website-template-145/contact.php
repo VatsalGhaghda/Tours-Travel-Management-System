@@ -161,15 +161,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="icon">
                             <i class="fa fa-phone"></i>
                         </div>
-                        <h5><a href="#">+1 333 4040 5566</a></h5>
+                        <h5><a href="#">+91 9876543210</a></h5>
                         <div class="icon">
                             <i class="fa fa-envelope"></i>
                         </div>
-                        <h5><a href="#">contact@company.com</a></h5>
+                        <h5><a href="#">travelagency@gmail.com</a></h5>
                         <div class="icon">
                             <i class="fa fa-map-marker"></i>
                         </div>
-                        <h5>212 Barrington Court New York</h5>
+                        <h5>India</h5>
                     </div>
                 </div>
             </div>
