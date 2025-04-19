@@ -255,8 +255,6 @@ session_start();
             <h3><b>Languages & Skills</b></h3>
             <hr>
             <ul class="languages">
-                <li> HTML & CSS</li>
-                <li>JavaScript</li>
                 <li>Java</li>
                 <li>C Language</li>
                 <li>Android</li>
@@ -270,13 +268,16 @@ session_start();
             <ul class="languages">
                 <li> Drawing</li>
                 <li>Coding</li>
-                <li>play musical instrument</li>
-                <li>sports</li>
+                <li>Playing musical instrument</li>
+                <li>Sports</li>
                 
             </ul>
             <a href="https://www.linkedin.com/in/bhavy-tanna-453538243/" class="linkedin-btn" target="_blank">
                 <i class="fab fa-linkedin"></i>
             </a>
+            
+            <!-- Add margin/space between icons -->
+            <span style="margin: 0 10px;"></span>
 
             <a href="https://github.com/bhavytanna" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i>
@@ -304,16 +305,16 @@ session_start();
             <h3><b>Hobbies</b></h3>
             <hr>
             <ul class="languages">
-                <li> Travelling</li>
+                <li>Travelling</li>
                 <li>Reading</li>
-               
-                
             </ul>
 
-                            
+            <!-- For Vatsal's card -->
             <a href="https://www.linkedin.com/in/vatsal-ghaghda/" class="linkedin-btn" target="_blank">
                 <i class="fab fa-linkedin"></i>
             </a>
+            
+            <span style="margin: 0 10px;"></span>
 
             <a href="https://github.com/vatsalghaghda" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i>
@@ -347,6 +348,9 @@ session_start();
             <a href="https://www.linkedin.com/in/jaiditya-chauhan-a2a58b298/" class="linkedin-btn" target="_blank">
                 <i class="fab fa-linkedin"></i>
             </a>
+
+            <span style="margin: 0 10px;"></span>
+
             <a href="https://github.com/jaidityachauhan" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i>
             </a>   
@@ -366,6 +370,11 @@ session_start();
     
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Add these Bootstrap JS files -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     
 </body>
 </html>
