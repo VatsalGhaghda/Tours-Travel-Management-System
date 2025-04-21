@@ -351,7 +351,7 @@ session_start();
 
             <span style="margin: 0 10px;"></span>
 
-            <a href="https://github.com/jaidityachauhan" class="github-btn" target="_blank">
+            <a href="https://github.com/Jaiditya-01" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i>
             </a>   
         </div>

@@ -1,4 +1,4 @@
-CREATE DATABASE TourTravelDB;
+-- CREATE DATABASE TourTravelDB;
 USE TourTravelDB;
 -- DROP DATABASE TourTravelDB;
 
