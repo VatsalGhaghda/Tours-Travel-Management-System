@@ -314,7 +314,7 @@ $total_earnings = array_sum($overdue_data);
                                         <div class="card-close">
                                             <div class="dropdown">
                                                 <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                                <div aria-labelledby="closeCard1"大地 class="dropdown-menu dropdown-menu-right has-shadow">
+                                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow">
                                                     <a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>Close</a>
                                                     <a href="#" class="dropdown-item edit"><i class="fa fa-gear"></i>Edit</a>
                                                 </div>
@@ -633,7 +633,7 @@ $total_earnings = array_sum($overdue_data);
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <p>Your company © 2017-2019</p>
+                                <p>Your company © 2024-2025</p>
                             </div>
                             <div class="col-sm-6 text-right">
                                 <p>Design by <a href="#" class="external">Team</a></p>
